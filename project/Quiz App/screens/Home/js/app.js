@@ -12,33 +12,39 @@ function add() {
   }
 }
 
-function checkQuiz() {
+function checkQuiz(quiz) {
+  localStorage.setItem("slectedQuiz", JSON.stringify(quiz))
   location.href = "../QuizDetails/index.html";
+  // console.log("🚀 ~ file: app.js ~ line 16 ~ checkQuiz ~ quiz", quiz.)
 }
 
-function deleteQuiz(quiz) {
+function deleteQuiz() {
   var deleteQuiz = document.getElementsByClassName("deleteQuiz");
   if (deleteWrapper) {
-    wrapper.remove(quiz);
-    console.log(quiz)
+    wrapper.remove();
+    // console.log(quiz)
   }
   else{
     console.log("delete")
   }
 }
 
-var quiz = ["Quiz1", "Quiz2", "Quiz3", "Quiz4"];
-
+var quiz = {
+  title :["Quiz1", "Quiz2", "Quiz3", "Quiz4"],
+  totalQuestion : 5,
+  totalMarks : 50, 
+};
+  
 var mainWrapper = document.getElementById("main");
-for (let i = 0; i < quiz.length; i++) {
+for (let i = 0; i < quiz.title.length; i++) {
   var wrapper = document.createElement("div");
   wrapper.setAttribute("class", "quizContainer");
 
   var title = document.createElement("p");
   title.setAttribute("class", "title");
-  title.innerHTML = quiz[i];
+  title.innerHTML = quiz.title[i];
   title.addEventListener("click",
-  checkQuiz.bind(null, quiz[i]),
+  checkQuiz.bind(null, quiz.title[i]),
   false)
   wrapper.appendChild(title);
 
@@ -47,7 +53,7 @@ for (let i = 0; i < quiz.length; i++) {
   deleteWrapper.setAttribute("class", "deleteQuiz");
   deleteWrapper.addEventListener(
     "click",
-    deleteQuiz.bind(null, quiz[i]),
+    deleteQuiz.bind(null, quiz.title[i]),
     false
   );
   wrapper.appendChild(deleteWrapper);

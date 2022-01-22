@@ -1,8 +1,12 @@
 
-localStorage.setItem("email","faizanpervaiz517@gmail.com")
-localStorage.setItem("password","fazi123")
-var userEmail = localStorage.getItem("email")
-var userPassword = localStorage.getItem("password")
+localStorage.setItem("email","admin@gmail.com")
+localStorage.setItem("password","admin")
+localStorage.setItem("studentEmail","faizanpervaiz517@gmail.com")
+localStorage.setItem("studentPassword","fazi123")
+var adminEmail = localStorage.getItem("email")
+var adminPassword = localStorage.getItem("password")
+var studentEmail = localStorage.getItem("studentEmail")
+var studentPassword = localStorage.getItem("studentPassword")
 
 
 function button() {
@@ -14,14 +18,17 @@ function button() {
     else if (!password) {
         alert("Enter your password")
     }
-    else if (email == userEmail && password == userPassword) {
+    else if (email == adminEmail && email == adminPassword) {
         location.replace("../Home/index.html")   
     }
-    else if (email != userEmail) {
-        alert("Wrong email")   
-    }
-    else if (password != userPassword) {
-        alert("wrong password")   
+    // else if (email != adminEmail ||email != studentEmail) {
+    //     alert("Wrong email")   
+    // }
+    // else if (password != adminPassword || studentPassword) {
+    //     alert("wrong password")   
+    // }
+    else if (email == studentEmail && password == studentPassword) {
+        location.replace("../studentHome/index.html")
     }
     
 }

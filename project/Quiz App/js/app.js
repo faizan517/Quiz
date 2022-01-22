@@ -1,4 +1,4 @@
-var userLogin = false;
+var userLogin = true;
 setTimeout(function () {
   if (userLogin) {
     location.replace("./screens/Home/index.html");

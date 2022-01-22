@@ -6,15 +6,15 @@ function logout() {
   }
 
 var QuizDetails =document.getElementById("quizSection")
-
+const data = JSON.parse(localStorage.getItem("slectedQuiz"))
 var deatils =`
 <div class="quizContainer">
 <p class="title">Title: </p>
-<p class="value">Quiz 1</p>
+<p class="value">${data}</p>
 </div>
 <div class="quizContainer">
   <p class="title">Total Question: </p>
-  <p class="value"></p>
+  <p class="value">${data}</p>
 </div>
 <div class="quizContainer">
   <p class="title">Total Marks:</p>
