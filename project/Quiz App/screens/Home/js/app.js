@@ -28,23 +28,36 @@ function deleteQuiz() {
     console.log("delete")
   }
 }
+// const studentData = 
 
-var quiz = {
-  title :["Quiz1", "Quiz2", "Quiz3", "Quiz4"],
-  totalQuestion : 5,
-  totalMarks : 50, 
-};
+const data = JSON.parse(localStorage.getItem("slectedQuiz"))
+// const studentData = 
+// const studentName1 = 
+// const studentName2 = JSON.parse(localStorage.getItem("assignName2"))
+// const studentName3 = JSON.parse(localStorage.getItem("assignName3"))
+// const dueDate = 
+ 
+let quiz = [{
+  title : "Quiz1",
+  totalQuestion : 1,
+  totalMarks : 5,
+  dueDate :  JSON.parse(localStorage.getItem("dueDate")),
+  studentName : JSON.parse(localStorage.getItem("assignName1")),
+  marksObtained : JSON.parse(localStorage.getItem("marks"))
+}
+
+];
   
 var mainWrapper = document.getElementById("main");
-for (let i = 0; i < quiz.title.length; i++) {
+for (let i = 0; i < quiz.length; i++) {
   var wrapper = document.createElement("div");
   wrapper.setAttribute("class", "quizContainer");
 
   var title = document.createElement("p");
   title.setAttribute("class", "title");
-  title.innerHTML = quiz.title[i];
+  title.innerHTML = quiz[i].title;
   title.addEventListener("click",
-  checkQuiz.bind(null, quiz.title[i]),
+  checkQuiz.bind(null, quiz[i]),
   false)
   wrapper.appendChild(title);
 
@@ -53,7 +66,7 @@ for (let i = 0; i < quiz.title.length; i++) {
   deleteWrapper.setAttribute("class", "deleteQuiz");
   deleteWrapper.addEventListener(
     "click",
-    deleteQuiz.bind(null, quiz.title[i]),
+    deleteQuiz.bind(null, quiz[i]),
     false
   );
   wrapper.appendChild(deleteWrapper);
