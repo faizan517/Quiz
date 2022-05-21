@@ -109,4 +109,26 @@ function logout() {
     console.log("error");
   }
 }
+
+tick = () => {
+  var quizes = localStorage.getItem('quizes')
+  // console.log("🚀 ~ file: app.js ~ line 115 ~ quizes", quizes)
+  if(quizes == null) {
+    localStorage.setItem('quizes',JSON.stringify([]))
+  } else {
+    var oldData = JSON.parse(localStorage.getItem('quizes'))
+    var newQuiz = {
+      title: 'Mia Khalifa',
+      dueDate: JSON.parse(localStorage.getItem("dueDate")),
+      marksObtained: JSON.parse(localStorage.getItem("marks")),
+      studentsName: JSON.parse(localStorage.getItem("assignName1")),
+      totalMarks: 50,
+      totalQuestion: 1
+    } 
+
+    localStorage.setItem('quizes', JSON.stringify([...oldData, newQuiz]))
+  }
+
+  
+}
     

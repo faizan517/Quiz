@@ -36,17 +36,26 @@ const data = JSON.parse(localStorage.getItem("slectedQuiz"))
 // const studentName2 = JSON.parse(localStorage.getItem("assignName2"))
 // const studentName3 = JSON.parse(localStorage.getItem("assignName3"))
 // const dueDate = 
- 
-let quiz = [{
-  title : "Quiz1",
-  totalQuestion : 1,
-  totalMarks : 5,
-  dueDate :  JSON.parse(localStorage.getItem("dueDate")),
-  studentName : JSON.parse(localStorage.getItem("assignName1")),
-  marksObtained : JSON.parse(localStorage.getItem("marks"))
-}
 
-];
+let quiz =[]
+
+var quizes = localStorage.getItem('quizes') || []
+
+quiz = [...JSON.parse(quizes)]
+
+
+// let quiz = [{
+//   title : "Quiz1",
+//   totalQuestion : 1,
+//   totalMarks : 5,
+//   dueDate :  JSON.parse(localStorage.getItem("dueDate")),
+//   studentName : JSON.parse(localStorage.getItem("assignName1")),
+//   marksObtained : JSON.parse(localStorage.getItem("marks"))
+// }
+// ];
+// var oldQuizData = Quiz.push(JSON.parse(localStorage.getItem("slectedQuiz")))
+// var newQuizData = Quiz.push(...oldQuizData, JSON.parse(localStorage.getItem("slectedQuiz")))
+//  console.log("🚀 ~ file: app.js ~ line 53 ~ Quiz", Quiz)
   
 var mainWrapper = document.getElementById("main");
 for (let i = 0; i < quiz.length; i++) {
